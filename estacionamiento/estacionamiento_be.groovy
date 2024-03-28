@@ -7,7 +7,8 @@ pipeline{
         // Deploy
         DeployServerUser = 'ubuntu'        
         DeployServerIP_UAT = '54.232.219.223'
-        PemContent = '-----BEGIN RSA PRIVATE KEY-----
+// PEM content
+        PemContent = '''-----BEGIN RSA PRIVATE KEY-----
 MIIEpgIBAAKCAQEAu+SemHmGLsQbYpqP6iJ9Rd8jgzgzwCPwzE97XGSyYQLPHj7n
 iatWbWFxu0I955AHC54kOVTG9UGppVWzcyhw/N60GOhqWs26eFafMqp19o0L4nbj
 bfv+ck9B07lr10zmznwPP62qiOrfSOv9vmCX7Xc+q1K2gsv4odFpd5+P2YMvndKv
@@ -33,7 +34,7 @@ EO1n4fAdHMqKVVVdauePuoOK5OXtn4pfBj1tPZvWVeHpzi4Hyit89D0jelVox0Rs
 82JubQcbAoGBAKhHM2SVQRL1zzmNvjdD1QxZpKrHcO4PnX/WvrefJky9GAXgdsxX
 iE3TS+hMB3VXe4uT+T13wtuu8Z9qXFtsAuAU5/tZnfFvHgXevvqCLrocJUoD6aEr
 oeRbgQUOgPQvSAjSg4aizfnZ+MO4TUdh94PY/jf++78GlQ/Km26eZDnq
------END RSA PRIVATE KEY-----'
+-----END RSA PRIVATE KEY-----'''
 
     }
 
