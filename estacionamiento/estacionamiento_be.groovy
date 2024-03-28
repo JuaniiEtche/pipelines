@@ -19,10 +19,12 @@ pipeline{
             }
         }    
 
-        stage ('Deploy'){
-            steps {
-                script {
-                    try {
+        stage('Deploy') {
+        steps {
+            script {
+                try {
+                    // Usar las credenciales SSH configuradas en Jenkins
+                    sshagent(credentials: ['pem']) {
                         // Comando SSH para ejecutar el script remoto
                         def result = sh(script: "ssh ubuntu@54.232.219.223 sh /home/ubuntu/estacionamiento/deploy_estacionamiento_be.sh ${Branch}", returnStatus: true)
 
@@ -30,11 +32,12 @@ pipeline{
                         if (result != 0) {
                             error("Error: El comando SSH no se ejecutó correctamente. Código de salida: ${result}")
                         }
-                    } catch (Exception ex) {
-                        // Capturar cualquier excepción y manejarla
-                        error("Error durante la ejecución del script: ${ex.message}")
                     }
+                } catch (Exception ex) {
+                    // Capturar cualquier excepción y manejarla
+                    error("Error durante la ejecución del script: ${ex.message}")
                 }
+            }
             }
         }
     }
