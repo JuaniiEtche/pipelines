@@ -4,11 +4,6 @@ pipeline{
         // GIT Proyect
         Branch = "${env.BRANCH}"
         Hostname = "${env.HOSTNAME}"
-        // Deploy
-        DeployServerUser = 'ubuntu'        
-        DeployServerIP_UAT = '54.232.219.223'
-        CredentialId = 'pem'
-        PemFilePath = "/home/ubuntu/clave.pem"
     }
 
     stages{
@@ -25,9 +20,8 @@ pipeline{
         steps {
             script {
                 try {
-                    // Usar las credenciales SSH configuradas en Jenkins
-                            // Comando SSH para ejecutar el script remoto
-                        def result = sh(script: "ssh -i ${PemFilePath} ubuntu@54.232.219.223 sh /home/ubuntu/estacionamiento/deploy_estacionamiento_be.sh ${Branch}", returnStatus: true)
+                        // Comando SSH para ejecutar el script 
+                        def result = sh(script: "sh /home/ubuntu/estacionamiento/deploy_estacionamiento_be.sh ${Branch}", returnStatus: true)
 
                         // Verificar el código de salida del comando SSH
                         if (result != 0) {
