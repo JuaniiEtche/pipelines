@@ -23,7 +23,7 @@ pipeline {
                     // Usar diferentes scripts de deployment basados en el valor de Ambiente
                     if (Ambiente == 'PROD') {
                         // Ejecutar el script en la VM de producción
-                        def result = sh(script: "ssh root@200.58.106.151 'bash /root/capnee/deploy_capnee_be.sh ${Branch}'", returnStatus: true)
+                        def result = sh(script: "ssh -p 5948 root@200.58.106.151 'bash /root/capnee/deploy_capnee_be.sh ${Branch}'", returnStatus: true)
                         if (result != 0) {
                             error("Error: El comando SSH para producción no se ejecutó correctamente. Código de salida: ${result}")
                         }
