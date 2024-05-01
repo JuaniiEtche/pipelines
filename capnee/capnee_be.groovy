@@ -31,7 +31,7 @@ pipeline {
                     }
                     } else if (Ambiente == 'UAT') {
                         // Ejecutar el script en la VM de UAT
-                        def result = sh(script: "sh /home/ubuntu/projects/capnee/deploy_capnee_be.sh ${Branch}", returnStatus: true)
+                        def result = sh(script: "sh /home/administrador/projects/capnee/deploy_capnee_be.sh ${Branch}", returnStatus: true)
                         if (result != 0) {
                             error("Error: El comando SSH para UAT no se ejecutó correctamente. Código de salida: ${result}")
                         }
